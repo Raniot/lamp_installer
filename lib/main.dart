@@ -46,10 +46,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   static var wireColors = [
-    DropdownColor(color: Colors.brown, colorText: 'Brun'),
-    DropdownColor(color: Colors.blue, colorText: 'Blå'),
-    DropdownColor(color: Colors.green, colorText: 'Grøn'),
-    DropdownColor(color: Colors.transparent, colorText: 'Ingen')
+    DropdownColor(color1: Colors.brown, color2: Colors.brown, colorText: 'Brun'),
+    DropdownColor(color1: Colors.blue, color2: Colors.blue, colorText: 'Blå'),
+    DropdownColor(color1: Colors.green, color2: Colors.yellow, colorText: 'Gul/Grøn'),
+    DropdownColor(color1: Colors.transparent, colorText: 'Ingen')
   ];
   DropdownColor wireColor1 = wireColors[0];
   DropdownColor wireColor2 = wireColors[1];
