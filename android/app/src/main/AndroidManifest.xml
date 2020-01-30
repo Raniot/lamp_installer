@@ -8,7 +8,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="lamp_installer"
+        android:label="Sæt din lampe op"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
