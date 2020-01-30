@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:lamp_installer/dropdownColor.dart';
 
 void main() => runApp(new MyApp());
 
@@ -45,22 +45,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  String wireColor1 = 'Brun';
-  String wireColor2 = 'Blå';
-  String wireColor3 = 'Ingen';
+  DropdownColor wireColor1 = DropdownColor(color: Colors.brown, colorText: 'Brun');
+  // String wireColor2 = 'Blå';
+  // String wireColor3 = 'Ingen';
 
   @override
   Widget build(BuildContext context) {
@@ -106,45 +93,48 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                new DropdownButton<String>(
+                new DropdownButton<DropdownColor>(
                   value: wireColor1,
-                  items: <String>['Brun', 'Blå', 'Sort', 'Gul/Grøn']
-                      .map((String value) {
-                    return new DropdownMenuItem<String>(
+                  items: <DropdownColor>[wireColor1]
+                      .map((DropdownColor value) {
+                    return new DropdownMenuItem<DropdownColor>(
                       value: value,
-                      child: new Text(value),
+                      child: Row(children: <Widget>[
+                        Container(height: 10, width: 10, color: value.color,),
+                        Text(value.colorText)
+                      ],)
                     );
                   }).toList(),
-                  onChanged: (String newValue) {
+                  onChanged: (DropdownColor newValue) {
                     setState(() {wireColor1 = newValue;});
                   },
                 ),
-                new DropdownButton<String>(
-                  value: wireColor2,
-                  items: <String>['Brun', 'Blå', 'Sort', 'Gul/Grøn']
-                      .map((String value) {
-                    return new DropdownMenuItem<String>(
-                      value: value,
-                      child: new Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (String newValue) {
-                    setState(() {wireColor2 = newValue;});
-                  },
-                ),
-                new DropdownButton<String>(
-                  value: wireColor3,
-                  items: <String>['Brun', 'Blå', 'Sort', 'Gul/Grøn', 'Ingen']
-                      .map((String value) {
-                    return new DropdownMenuItem<String>(
-                      value: value,
-                      child: new Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (String newValue) {
-                    setState(() {wireColor3 = newValue;});
-                  },
-                ),
+              //   new DropdownButton<String>(
+              //     value: wireColor2,
+              //     items: <String>['Brun', 'Blå', 'Sort', 'Gul/Grøn']
+              //         .map((String value) {
+              //       return new DropdownMenuItem<String>(
+              //         value: value,
+              //         child: new Text(value),
+              //       );
+              //     }).toList(),
+              //     onChanged: (String newValue) {
+              //       setState(() {wireColor2 = newValue;});
+              //     },
+              //   ),
+              //   new DropdownButton<String>(
+              //     value: wireColor3,
+              //     items: <String>['Brun', 'Blå', 'Sort', 'Gul/Grøn', 'Ingen']
+              //         .map((String value) {
+              //       return new DropdownMenuItem<String>(
+              //         value: value,
+              //         child: new Text(value),
+              //       );
+              //     }).toList(),
+              //     onChanged: (String newValue) {
+              //       setState(() {wireColor3 = newValue;});
+              //     },
+              //   ),
               ],
             ),
             Text(
@@ -154,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: null,
         tooltip: 'Camera',
         child: Icon(Icons.camera_alt),
       ),

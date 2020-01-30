@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DropdownColor extends StatelessWidget{
-  final color;
+  final Color color;
   final String colorText;
   
   const DropdownColor({
@@ -12,6 +12,9 @@ class DropdownColor extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    
+    return Row(children: <Widget>[
+      Container(color: color, width: 10, height: 10,),
+      Text(colorText)
+    ],);
   }
 }
