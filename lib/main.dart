@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
     DropdownColor(color1: Colors.brown, color2: Colors.brown, colorText: 'Brun'),
     DropdownColor(color1: Colors.blue, color2: Colors.blue, colorText: 'Blå'),
     DropdownColor(color1: Colors.green, color2: Colors.yellow, colorText: 'Gul/Grøn'),
-    DropdownColor(color1: Colors.transparent, colorText: 'Ingen')
+    DropdownColor(color1: Colors.transparent, color2: Colors.transparent, colorText: 'Ingen')
   ];
   DropdownColor wireColor1 = wireColors[0];
   DropdownColor wireColor2 = wireColors[1];
@@ -132,10 +132,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                new DropdownButton<DropdownColor>(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                  Text('Ledning 1: '),
+                  new DropdownButton<DropdownColor>(
                   value: wireColor1,
                   items: wireColors.map((DropdownColor value) {
                     return new DropdownMenuItem<DropdownColor>(
@@ -149,12 +154,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   },
                 ),
-                new DropdownButton<DropdownColor>(
+                ],),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                  Text('Ledning 2: '),
+                  new DropdownButton<DropdownColor>(
                   value: wireColor2,
                   items: wireColors.map((DropdownColor value) {
                     return new DropdownMenuItem<DropdownColor>(
                       value: value,
-                      child: value
+                      child: value,
                     );
                   }).toList(),
                   onChanged: (DropdownColor newValue) {
@@ -163,7 +173,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   },
                 ),
-                new DropdownButton<DropdownColor>(
+                ],),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                  Text('Ledning 3: '),
+                  new DropdownButton<DropdownColor>(
                   value: wireColor3,
                   items: wireColors.map((DropdownColor value) {
                     return new DropdownMenuItem<DropdownColor>(
@@ -177,9 +192,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   },
                 ),
+                ],)
               ],
             ),
-            ],)
+            ],),
               
             ),
             new Container(

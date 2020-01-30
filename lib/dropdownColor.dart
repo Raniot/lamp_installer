@@ -20,48 +20,21 @@ class DropdownColor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          width: 20,
-          height: 20,
-          child: Row(
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Container(
-                    height: size,
-                    width: size,
-                    color: this.color1,
-                  ),
-                  Container(
-                    height: size,
-                    width: size,
-                    color: this.color2,
-                  ),
-                ],
-              ),
-              Column(children: <Widget>[
-                Container(
-                  height: size,
-                  width: size,
-                  color: this.color2,
-                ),
-                Container(
-                  height: size,
-                  width: size,
-                  color: this.color1,
-                ),
-              ])
-            ],
-          ),
+    return Container(
+      alignment: Alignment.center,
+      decoration: new BoxDecoration(
+        color: this.color1,
+        gradient: new LinearGradient(
+          colors: [this.color2, this.color1],
         ),
-        Text(
+      ),
+      child: Text(
           this.colorText,
-          style: TextStyle(color: getTextColor()),
-        )
-      ],
-    );
+          style: TextStyle(color: Colors.black),
+        ),
+    );   
   }
 }
+
+
+
