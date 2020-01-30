@@ -45,9 +45,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  DropdownColor wireColor1 = DropdownColor(color: Colors.brown, colorText: 'Brun');
-  // String wireColor2 = 'Blå';
-  // String wireColor3 = 'Ingen';
+  static var wireColors = [
+    DropdownColor(color: Colors.brown, colorText: 'Brun'),
+    DropdownColor(color: Colors.blue, colorText: 'Blå'),
+    DropdownColor(color: Colors.green, colorText: 'Grøn'),
+    DropdownColor(color: Colors.transparent, colorText: 'Ingen')
+  ];
+  DropdownColor wireColor1 = wireColors[0];
+  DropdownColor wireColor2 = wireColors[1];
+  DropdownColor wireColor3 = wireColors[wireColors.length - 1];
 
   @override
   Widget build(BuildContext context) {
@@ -95,46 +101,46 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 new DropdownButton<DropdownColor>(
                   value: wireColor1,
-                  items: <DropdownColor>[wireColor1]
-                      .map((DropdownColor value) {
+                  items: wireColors.map((DropdownColor value) {
                     return new DropdownMenuItem<DropdownColor>(
                       value: value,
-                      child: Row(children: <Widget>[
-                        Container(height: 10, width: 10, color: value.color,),
-                        Text(value.colorText)
-                      ],)
+                      child: value
                     );
                   }).toList(),
                   onChanged: (DropdownColor newValue) {
-                    setState(() {wireColor1 = newValue;});
+                    setState(() {
+                      wireColor1 = newValue;
+                    });
                   },
                 ),
-              //   new DropdownButton<String>(
-              //     value: wireColor2,
-              //     items: <String>['Brun', 'Blå', 'Sort', 'Gul/Grøn']
-              //         .map((String value) {
-              //       return new DropdownMenuItem<String>(
-              //         value: value,
-              //         child: new Text(value),
-              //       );
-              //     }).toList(),
-              //     onChanged: (String newValue) {
-              //       setState(() {wireColor2 = newValue;});
-              //     },
-              //   ),
-              //   new DropdownButton<String>(
-              //     value: wireColor3,
-              //     items: <String>['Brun', 'Blå', 'Sort', 'Gul/Grøn', 'Ingen']
-              //         .map((String value) {
-              //       return new DropdownMenuItem<String>(
-              //         value: value,
-              //         child: new Text(value),
-              //       );
-              //     }).toList(),
-              //     onChanged: (String newValue) {
-              //       setState(() {wireColor3 = newValue;});
-              //     },
-              //   ),
+                new DropdownButton<DropdownColor>(
+                  value: wireColor2,
+                  items: wireColors.map((DropdownColor value) {
+                    return new DropdownMenuItem<DropdownColor>(
+                      value: value,
+                      child: value
+                    );
+                  }).toList(),
+                  onChanged: (DropdownColor newValue) {
+                    setState(() {
+                      wireColor2 = newValue;
+                    });
+                  },
+                ),
+                new DropdownButton<DropdownColor>(
+                  value: wireColor3,
+                  items: wireColors.map((DropdownColor value) {
+                    return new DropdownMenuItem<DropdownColor>(
+                      value: value,
+                      child: value
+                    );
+                  }).toList(),
+                  onChanged: (DropdownColor newValue) {
+                    setState(() {
+                      wireColor3 = newValue;
+                    });
+                  },
+                ),
               ],
             ),
             Text(
