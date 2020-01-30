@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -57,6 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  String wireColor1 = 'Brun';
+  String wireColor2 = 'Blå';
+  String wireColor3 = 'Ingen';
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -89,14 +94,61 @@ class _MyHomePageState extends State<MyHomePage> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            SizedBox(
+              height: 10,
             ),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              '    1) Sluk for afbryder. \n\n    2) Fjern dækselet på lampe udtaget. \n\n    3) Vælg ledning farver:',
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                new DropdownButton<String>(
+                  value: wireColor1,
+                  items: <String>['Brun', 'Blå', 'Sort', 'Gul/Grøn']
+                      .map((String value) {
+                    return new DropdownMenuItem<String>(
+                      value: value,
+                      child: new Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (String newValue) {
+                    setState(() {wireColor1 = newValue;});
+                  },
+                ),
+                new DropdownButton<String>(
+                  value: wireColor2,
+                  items: <String>['Brun', 'Blå', 'Sort', 'Gul/Grøn']
+                      .map((String value) {
+                    return new DropdownMenuItem<String>(
+                      value: value,
+                      child: new Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (String newValue) {
+                    setState(() {wireColor2 = newValue;});
+                  },
+                ),
+                new DropdownButton<String>(
+                  value: wireColor3,
+                  items: <String>['Brun', 'Blå', 'Sort', 'Gul/Grøn', 'Ingen']
+                      .map((String value) {
+                    return new DropdownMenuItem<String>(
+                      value: value,
+                      child: new Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (String newValue) {
+                    setState(() {wireColor3 = newValue;});
+                  },
+                ),
+              ],
+            ),
+            Text(
+              '    4) Klik på Camera knappen og film lampe udtaget.',
             ),
           ],
         ),
@@ -105,8 +157,9 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: _incrementCounter,
         tooltip: 'Camera',
         child: Icon(Icons.camera_alt),
-      ), 
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,// This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation
+          .centerFloat, // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
