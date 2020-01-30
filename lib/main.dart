@@ -93,10 +93,46 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: 10,
             ),
-            Text(
-              '    1) Sluk for afbryder. \n\n    2) Fjern dækselet på lampe udtaget. \n\n    3) Vælg ledning farver:',
-            ),
-            Row(
+            new Container(
+              margin: new EdgeInsets.all(10.0),
+              child: TextFormField(
+                enabled: false,
+                initialValue: "Sluk for afbryder.",
+                decoration: InputDecoration(
+                  labelText: '1)',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5), 
+                    ),
+                  ),
+                ),
+              ),
+              new Container(
+              margin: new EdgeInsets.all(10.0),
+              child: TextFormField(
+                enabled: false,
+                initialValue: "Fjern dækselet på lampe udtaget.",
+                decoration: InputDecoration(
+                  labelText: '2)',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5), 
+                    ),
+                  ),
+                ),
+              ),
+              new Container(
+              margin: new EdgeInsets.all(10.0),
+              child: Column(children: <Widget>[
+              TextFormField(
+                enabled: false,
+                initialValue: "Vælg ledning farver:",
+                decoration: InputDecoration(
+                  labelText: '3)',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5), 
+                    ),
+                  ),
+                ),
+                Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 new DropdownButton<DropdownColor>(
@@ -143,9 +179,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            Text(
-              '    4) Klik på Camera knappen og film lampe udtaget.',
+              ],)
+              
             ),
+            new Container(
+              margin: new EdgeInsets.all(10.0),
+              child: TextFormField(
+                enabled: false,
+                initialValue: "Klik på Camera knappen og film lampe udtaget.",
+                decoration: InputDecoration(
+                  labelText: '4)',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(5), 
+                    ),
+                  ),
+                ),
+              ),
           ],
         ),
       ),
