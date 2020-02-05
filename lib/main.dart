@@ -95,11 +95,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             new Container(
               margin: new EdgeInsets.all(10.0),
+              color: Colors.grey[300],
               child: TextFormField(
                 enabled: false,
                 initialValue: "Sluk for afbryder.",
                 decoration: InputDecoration(
                   labelText: '1)',
+                  labelStyle: TextStyle(color: Colors.black),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5), 
                     ),
@@ -108,11 +110,13 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               new Container(
               margin: new EdgeInsets.all(10.0),
+              color: Colors.grey[300],
               child: TextFormField(
                 enabled: false,
                 initialValue: "Fjern dækselet på lampe udtaget.",
                 decoration: InputDecoration(
                   labelText: '2)',
+                  labelStyle: TextStyle(color: Colors.black),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5), 
                     ),
@@ -121,16 +125,31 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               new Container(
               margin: new EdgeInsets.all(10.0),
-              child: Column(children: <Widget>[
-              TextFormField(
-                enabled: false,
-                initialValue: "Vælg ledning farver:",
-                decoration: InputDecoration(
-                  labelText: '3)',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5), 
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 0.25
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0)
+                ),
+                color: Colors.grey[300],        
+              ),
+              child: Column(
+                children: <Widget>[
+                Container(
+                  color: Colors.grey[300],
+                  child: TextFormField(
+                    enabled: false,
+                    initialValue: "Vælg ledning farver:",
+                    decoration: InputDecoration(
+                      labelText: '3)',
+                      labelStyle: TextStyle(color: Colors.black),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(style: BorderStyle.none, width: 0),
+                        borderRadius: BorderRadius.circular(5), 
+                        ),
+                      ),
                     ),
-                  ),
                 ),
               Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -140,58 +159,70 @@ class _MyHomePageState extends State<MyHomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                   Text('Ledning 1: '),
-                  new DropdownButton<DropdownColor>(
-                  value: wireColor1,
-                  items: wireColors.map((DropdownColor value) {
-                    return new DropdownMenuItem<DropdownColor>(
-                      value: value,
-                      child: value
-                    );
-                  }).toList(),
-                  onChanged: (DropdownColor newValue) {
-                    setState(() {
-                      wireColor1 = newValue;
-                    });
-                  },
+                  Container(
+                    color: wireColor1.color1,
+                    child: new DropdownButton<DropdownColor>(
+                      iconEnabledColor: Colors.black,
+                      value: wireColor1,
+                      items: wireColors.map((DropdownColor value) {
+                      return new DropdownMenuItem<DropdownColor>(
+                        value: value,
+                        child: value
+                      );
+                    }).toList(),
+                    onChanged: (DropdownColor newValue) {
+                      setState(() {
+                        wireColor1 = newValue;
+                      });
+                    },
                 ),
+                  ),
                 ],),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                   Text('Ledning 2: '),
-                  new DropdownButton<DropdownColor>(
-                  value: wireColor2,
-                  items: wireColors.map((DropdownColor value) {
-                    return new DropdownMenuItem<DropdownColor>(
-                      value: value,
-                      child: value,
-                    );
-                  }).toList(),
-                  onChanged: (DropdownColor newValue) {
-                    setState(() {
-                      wireColor2 = newValue;
-                    });
-                  },
+                  Container(
+                      color: wireColor2.color1,
+                      child: new DropdownButton<DropdownColor>(
+                        value: wireColor2,
+                        iconEnabledColor: Colors.black,
+                        items: wireColors.map((DropdownColor value) {
+                        return new DropdownMenuItem<DropdownColor>(
+                          value: value,
+                          child: value,
+                      );
+                    }).toList(),
+                    onChanged: (DropdownColor newValue) {
+                      setState(() {
+                        wireColor2 = newValue;
+                      });
+                    },
                 ),
+                  ),
                 ],),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                   Text('Ledning 3: '),
-                  new DropdownButton<DropdownColor>(
-                  value: wireColor3,
-                  items: wireColors.map((DropdownColor value) {
-                    return new DropdownMenuItem<DropdownColor>(
-                      value: value,
-                      child: value
-                    );
-                  }).toList(),
-                  onChanged: (DropdownColor newValue) {
-                    setState(() {
-                      wireColor3 = newValue;
-                    });
-                  },
+                  Container(
+                    color: wireColor3.color1,
+                    child: new DropdownButton<DropdownColor>(
+                      value: wireColor3,
+                      iconEnabledColor: Colors.black,
+                      items: wireColors.map((DropdownColor value) {
+                        return new DropdownMenuItem<DropdownColor>(
+                          value: value,
+                          child: value
+                        );
+                      }).toList(),
+                      onChanged: (DropdownColor newValue) {
+                        setState(() {
+                          wireColor3 = newValue;
+                        });
+                    },
                 ),
+                  ),
                 ],)
               ],
             ),
@@ -200,11 +231,13 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             new Container(
               margin: new EdgeInsets.all(10.0),
+              color: Colors.grey[300],
               child: TextFormField(
                 enabled: false,
                 initialValue: "Klik på Camera knappen og film lampe udtaget.",
                 decoration: InputDecoration(
                   labelText: '4)',
+                  labelStyle: TextStyle(color: Colors.black),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5), 
                     ),

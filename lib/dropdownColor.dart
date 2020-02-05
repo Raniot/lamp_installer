@@ -31,6 +31,7 @@ class DropdownColor extends StatelessWidget {
       child: Text(
           this.colorText,
           style: TextStyle(color: Colors.black),
+          textAlign: TextAlign.center,
         ),
     );   
   }
