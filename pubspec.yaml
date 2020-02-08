@@ -1,4 +1,4 @@
-name: lamp_installer
+name: cameraApp
 description: A new Flutter project.
 
 # The following defines the version and build number for your application.
@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  flutter_camera_ml_vision: ^2.2.4
   flutter:
     sdk: flutter
 
@@ -33,6 +34,7 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icon/LampIcon.png"
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

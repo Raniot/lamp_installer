@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "583405623593",
+    "firebase_url": "https://lamp-installer.firebaseio.com",
+    "project_id": "lamp-installer",
+    "storage_bucket": "lamp-installer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583405623593:android:b2ac147522f50d66877f38",
+        "android_client_info": {
+          "package_name": "com.raniot.camera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "583405623593-d50pu3u2nf6gbg69vlc7tbam32sgn60n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqYP9jJQGMCD985UVhwoSiJJiprTEWc-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "583405623593-d50pu3u2nf6gbg69vlc7tbam32sgn60n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

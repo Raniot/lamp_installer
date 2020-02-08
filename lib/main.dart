@@ -1,5 +1,6 @@
+import 'package:cameraApp/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:lamp_installer/dropdownColor.dart';
+import 'package:cameraApp/dropdownColor.dart';
 
 void main() => runApp(new MyApp());
 
@@ -248,7 +249,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => CameraState(title: "Detection Mode",)));}, 
         tooltip: 'Camera',
         child: Icon(Icons.camera_alt),
       ),
